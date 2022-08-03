@@ -47,8 +47,15 @@ public class BallController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "counter")
+        if (collision.tag == "gawangkiri")
         {
+            ScoreScript.score2 += 1;
+            resetPong();
+        }
+
+        if (collision.tag == "gawangkanan")
+        {
+            ScoreScript.score1 += 1;
             resetPong();
         }
     }

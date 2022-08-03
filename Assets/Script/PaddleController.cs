@@ -16,6 +16,15 @@ public class PaddleController : MonoBehaviour
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+
+        if (leftPaddle)
+        {
+            Debug.Log("Kecepatan Paddle Kiri : " + speed);
+        }
+        if (rightPaddle)
+        {
+            Debug.Log("Kecepatan Paddle Kanan : " + speed);
+        }
     }
     private void Update()
     {
