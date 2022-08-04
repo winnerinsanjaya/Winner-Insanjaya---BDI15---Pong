@@ -8,6 +8,11 @@ TagManager:
   - gawangkiri
   - gawangkanan
   - powerup
+  - paddlekiri
+  - paddlekanan
+  - uppaddle
+  - speedup
+  - speedpaddle
   layers:
   - Default
   - TransparentFX

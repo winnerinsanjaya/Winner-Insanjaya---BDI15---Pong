@@ -32,22 +32,27 @@ public class speedUpSpawner : MonoBehaviour
 
             cooldownTimer = cooldown;
 
-
-            if (jumlahSU == 1)
+            GameObject[] masihada = GameObject.FindGameObjectsWithTag("powerup");
+            if(masihada.Length == 0)
             {
-                var position = new Vector3(Random.Range(-7f, 7f), 0, Random.Range(-3.5f, 3.5f));
-                Instantiate(speedUpfabs, position, Quaternion.identity);
-            }
-            if (jumlahSU == 2)
-            {
-                var position1 = new Vector3(Random.Range(0f, 7f), 0, Random.Range(0f, 3.5f));
-                Instantiate(speedUpfabs, position1, Quaternion.identity);
+                if (jumlahSU == 1)
+                {
+                    var position = new Vector3(Random.Range(-7f, 7f), 0, Random.Range(-3.5f, 3.5f));
+                    Instantiate(speedUpfabs, position, Quaternion.identity);
+                }
+                if (jumlahSU == 2)
+                {
+                    var position1 = new Vector3(Random.Range(0f, 7f), 0, Random.Range(0f, 3.5f));
+                    Instantiate(speedUpfabs, position1, Quaternion.identity);
 
-                var position2 = new Vector3(Random.Range(-7f, 0f), 0, Random.Range(-3.5f, 0f));
-                Instantiate(speedUpfabs, position2, Quaternion.identity);
-            }
+                    var position2 = new Vector3(Random.Range(-7f, 0f), 0, Random.Range(-3.5f, 0f));
+                    Instantiate(speedUpfabs, position2, Quaternion.identity);
+                }
 
-            canSpawn = false;
+                canSpawn = false;
+            } 
+
+            
 
         }
 

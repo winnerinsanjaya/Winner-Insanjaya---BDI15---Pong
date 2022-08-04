@@ -27,8 +27,6 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
-
-        
     }
 
     public void resetPong()
@@ -39,7 +37,7 @@ public class BallController : MonoBehaviour
     }
     public void moveBall()
     {
-        int dirBall = Random.Range(0, 1);
+        int dirBall = Random.Range(0, 2);
         if (dirBall == 0)
         {
             rig.AddForce(new Vector2(-speedX, speedY));
@@ -75,9 +73,62 @@ public class BallController : MonoBehaviour
         if (collision.tag == "powerup")
         {
             activePowerUp();
-            
+            Destroy(collision.gameObject);
+            speedUpSpawner.canSpawn = true;
+
+        }
+
+        if (collision.tag == "paddlekiri")
+        {
+            ScoreScript.lastPaddle = "paddlekiri";
+            //Debug.Log("kiri");
+        }
+
+        if (collision.tag == "paddlekanan")
+        {
+            ScoreScript.lastPaddle = "paddlekanan";
+            //Debug.Log("kanan");
+        }
+
+        if (collision.tag == "uppaddle")
+        {
+            if(ScoreScript.lastPaddle == "paddlekanan")
+            {
+                GameObject paddleKa = GameObject.Find("Player2");
+                paddleKa.GetComponent<PaddleController>().upScale();
+            }
+
+            if (ScoreScript.lastPaddle == "paddlekiri")
+            {
+                GameObject paddleKa = GameObject.Find("Player1");
+                paddleKa.GetComponent<PaddleController>().upScale();
+            }
+
+
+           Destroy(collision.gameObject);
+            UpScaleSpawner.canSpawn = true;
+        }
+
+        if (collision.tag == "speedpaddle")
+        {
+            if (ScoreScript.lastPaddle == "paddlekanan")
+            {
+                GameObject paddleKa = GameObject.Find("Player2");
+                paddleKa.GetComponent<PaddleController>().upSpeed();
+            }
+
+            if (ScoreScript.lastPaddle == "paddlekiri")
+            {
+                GameObject paddleKa = GameObject.Find("Player1");
+                paddleKa.GetComponent<PaddleController>().upSpeed();
+            }
+
+
+            Destroy(collision.gameObject);
+            UpSpeedSpawner.canSpawn = true;
         }
     }
+
 
     public void activePowerUp()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class powerUP : MonoBehaviour
+public class SpeedPaddle : MonoBehaviour
 {
 
     public float cooldown = 4;
@@ -11,16 +11,16 @@ public class powerUP : MonoBehaviour
     void Start()
     {
         cooldownTimer = cooldown;
-        speedUpSpawner.canSpawn = false;
+        UpSpeedSpawner.canSpawn = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         cooldownTimer -= Time.deltaTime;
-        if(cooldownTimer < 0)
+        if (cooldownTimer < 0)
         {
-            speedUpSpawner.canSpawn = true;
+            UpSpeedSpawner.canSpawn = true;
             Destroy(gameObject);
         }
     }

@@ -10,6 +10,9 @@ public class ScoreScript : MonoBehaviour
     public static int score1, score2;
     public Text textS1, textS2, nilaiMaksText;
     public int nilaiMaksimal;
+
+    public static string lastPaddle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +32,7 @@ public class ScoreScript : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         }
+
+        Debug.Log(lastPaddle);
     }
 }
