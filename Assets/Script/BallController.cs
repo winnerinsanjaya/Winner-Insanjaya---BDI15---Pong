@@ -8,6 +8,11 @@ public class BallController : MonoBehaviour
     public float speed, waitTime;
     private float speedX, speedY;
     private Rigidbody2D rig;
+    public float powerup;
+    public float powerUpTime;
+    private float powerUpTimer;
+
+    private bool powerUpAct;
 
     private void Start()
     {
@@ -16,6 +21,14 @@ public class BallController : MonoBehaviour
 
         rig = GetComponent<Rigidbody2D>();
         resetPong();
+
+        powerUpTimer = powerUpTime;
+    }
+
+    void Update()
+    {
+
+        
     }
 
     public void resetPong()
@@ -58,5 +71,18 @@ public class BallController : MonoBehaviour
             ScoreScript.score1 += 1;
             resetPong();
         }
+
+        if (collision.tag == "powerup")
+        {
+            activePowerUp();
+            
+        }
     }
+
+    public void activePowerUp()
+    {
+        rig.velocity *= powerup;
+        Debug.Log("speedup");
+    }
+
 }
